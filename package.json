@@ -1,0 +1,17 @@
+{
+  "name": "lapack",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://github.com/NaturalNode/node-lapack",
+  "engines": {
+    "node": ">=0.2.6"
+  },
+  "author": "Chris Umbel <chris@chrisumbel.com>",
+  "keywords": ["lapack", "math", "linear", "algebra", "HPC"],
+  "main": "./lib/node-lapack/index.js",
+  "maintainers": [{
+      "name": "Chris Umbel",
+      "email": "chris@chrisumbel.com",
+      "web": "http://www.chrisumbel.com"
+  }]
+}
