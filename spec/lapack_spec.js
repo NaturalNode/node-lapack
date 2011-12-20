@@ -21,5 +21,13 @@ describe('lapack', function() {
 			     0.41421353816986084,
 			     1.4142135381698608 ] ])).toBeTruthy();
     });
+
+    it('should svd', function() {
+        var svd = lapack.sgesvd('A', 'A', [
+            [2, 1, 1],
+            [1, 1, 1],
+            [1, 1, 3]
+        ]);
+    });
 });
 
