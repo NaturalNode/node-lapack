@@ -3,13 +3,15 @@ var lapack = require('lib/node-lapack');
 var approxEql = require('./approxEql');
 
 describe('lapack', function() {
-    it('shoud qr', function() {
-	var qr = lapack.sgeqrf([
-	    [2, 1, 1],
-	    [1, 1, 1],
-	    [1, 1, 3]
-	]);
-	
+    var M = [
+        [2, 1, 1],
+        [1, 1, 1],
+        [1, 1, 3]
+    ];
+
+    it('shoud sgeqrf', function() {
+	var qr = lapack.sgeqrf(M);
+
 	expect(approxEql(qr.R, 
 			 [ [ -2.4494898319244385,
 			     -1.632993221282959,
@@ -22,12 +24,22 @@ describe('lapack', function() {
 			     1.4142135381698608 ] ])).toBeTruthy();
     });
 
-    it('should svd', function() {
-        var svd = lapack.sgesvd('A', 'A', [
-            [2, 1, 1],
-            [1, 1, 1],
-            [1, 1, 3]
-        ]);
+    it('should qr', function() {
+	var qr = lapack.qr(M);
+	expect(approxEql(qr.R, [
+	    [ -2.4494898319244385, -1.632993221282959, -2.4494895935058594 ],
+	    [ 0, -0.5773501992225647, -1.732050895690918 ],
+	    [ 0,  0, 1.4142135381698608 ]
+	])).toBeTruthy();
+	expect(approxEql(qr.Q, [
+	    [-8.16496580927726e-01,   5.77350269189626e-01,   5.04179082074709e-17],
+	    [-4.08248290463863e-01,  -5.77350269189626e-01,  -7.07106781186548e-01],
+	    [-4.08248290463863e-01,  -5.77350269189626e-01,   7.07106781186547e-01]
+	]));
+    });
+
+    it('should sgesvd', function() {
+        var svd = lapack.sgesvd('A', 'A', M);
 	
 	expect(approxEql(svd.S, [ [ 4.214320182800293, 0, 2.462372871899283e-38 ],
 				  [ 1.4608111381530762,
