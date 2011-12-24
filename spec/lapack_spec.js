@@ -18,8 +18,22 @@ describe('lapack', function() {
 	];
 
 	var result = lapack.sgetrf(luIn);
+	expect(approxEql(result.LU, [ [ 11, 3, 11, 3 ],
+				      [ -0.8181818723678589,
+					6.454545497894287,
+					12.000000953674316,
+					11.454545974731445 ],
+				      [ 0.3636363744735718,
+					0.14084506034851074,
+					-4.690140724182129,
+					1.2957748174667358 ],
+				      [ -0.3636363744735718,
+					0.9436619877815247,
+					0.9219222664833069,
+					-9.912914276123047 ] ])).toBeTruthy();
+	expect(approxEql(result.IPIV, [ 3, 2, 3, 4 ])).toBeTruthy();
     });
-
+    
     it('shoud sgeqrf', function() {
 	var qr = lapack.sgeqrf(M);
 
