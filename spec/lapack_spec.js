@@ -9,6 +9,17 @@ describe('lapack', function() {
         [1, 1, 3]
     ];
 
+    it('should lu', function() {
+	var luIn = [
+	    [ 4, 2, 1, 4],
+	    [-9, 4, 3, 9],
+	    [11, 3, 11, 3],
+	    [-4, 5, 3, 1]
+	];
+
+	var result = lapack.sgetrf(luIn);
+    });
+
     it('shoud sgeqrf', function() {
 	var qr = lapack.sgeqrf(M);
 
