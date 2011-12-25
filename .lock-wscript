@@ -1,9 +1,0 @@
-argv = ['/usr/local/bin/node-waf', 'configure']
-blddir = '/Users/kilnaar/src/node-lapack/build'
-commands = {'dist': 0, 'configure': True, 'distcheck': 0, 'install': 0, 'build': 0, 'clean': 0, 'distclean': 0, 'check': 0, 'uninstall': 0}
-cwd = '/Users/kilnaar/src/node-lapack'
-environ = {'SSH_AUTH_SOCK': '/tmp/launch-eKeJxY/Listeners', 'TORQUEBOX_HOME': '/usr/local/torquebox-current', 'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '273.1', 'DYLD_LIBRARY_PATH': '/usr/local/cuda/lib:', 'SCALA_HOME': '/usr/local/scala-2.8.1.final', 'SHELL': '/bin/bash', 'LOGNAME': 'kilnaar', 'USER': 'kilnaar', 'PATH': '/usr/local/cuda/bin:/usr/local/ironruby/bin:/opt/mongodb/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/usr/local/scala-2.8.1.final/bin:/usr/local/share/npm/bin:/usr/local/torquebox-current/jruby/bin:/usr/local/lib/node_modules/jasmine-node/bin:/Applications/Octave.app/Contents/Resources/bin', 'HOME': '/Users/kilnaar', 'DISPLAY': '/tmp/launch-T01JUM/org.x:0', '_': '/usr/local/bin/node-waf', 'TERM_PROGRAM': 'Apple_Terminal', 'LANG': 'en_US.UTF-8', 'TERM': 'xterm-color', 'Apple_PubSub_Socket_Render': '/tmp/launch-RrwDpk/Render', 'VERSIONER_PYTHON_VERSION': '2.6', 'SHLVL': '1', 'OLDPWD': '/Users/kilnaar/src', 'NODE_PATH': ':/usr/local/lib/node', '__CF_USER_TEXT_ENCODING': '0x1F5:0:0', 'PWD': '/Users/kilnaar/src/node-lapack', 'TMPDIR': '/var/folders/QA/QAKUzvpTFYmb676sUSrldU+++TI/-Tmp-/', 'JBOSS_HOME': '/usr/local/torquebox-current/jboss', 'JRUBY_HOME': '/usr/local/torquebox-current/jruby', 'COMMAND_MODE': 'unix2003'}
-files = []
-hash = 0
-options = {'compile_targets': None, 'force': False, 'verbose': 0, 'nocache': False, 'progress_bar': 0, 'destdir': '', 'keep': False, 'zones': '', 'blddir': '', 'prefix': '/usr/local/', 'jobs': 4, 'srcdir': '', 'check_cxx_compiler': 'g++'}
-srcdir = '/Users/kilnaar/src/node-lapack'
