@@ -9,10 +9,6 @@ function approxEql(matrixA, matrixB) {
 	
 	while(j--) {
             if((Math.abs(matrixA[i][j] - matrixB[i][j]) > precision)) {
-		console.log(matrixA[i][j]);
-		console.log(matrixB[i][j]);
-		console.log(Math.abs(matrixA[i][j] - matrixB[i][j]));
-
 		return false;
 	    }
         }
