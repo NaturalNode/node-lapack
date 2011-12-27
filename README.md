@@ -81,6 +81,19 @@ Usage
     console.log(qr.Q);
     console.log(qr.R);
 
+    // solve a system of linear equations
+
+    var a = [
+    	[2, 4],
+    	[2, 8]];
+
+    var b = [[2], 
+    	[4]];
+
+    var result = lapack.sgesv(a, b);
+    console.log(result.X);
+    console.log(result.P);
+
 LAPACK Building
 ===============
 

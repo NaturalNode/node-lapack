@@ -16,6 +16,17 @@ describe('lapack', function() {
 	[-9, 4,  3, 9]
     ];
     
+    it('should solve', function() {
+	var A = [
+	    [2, 4],
+	    [2, 8]
+	];
+
+	var B = [[2], [4]];
+	expect(lapack.sgesv(A, B).X).toEqual([[0], [.5]]);	
+	expect(lapack.sgesv(A, B).P).toEqual([[1, 0], [0, 1]]);
+    });
+
     it('should lu', function() {
 	var lu = lapack.lu(luIn);
 	expect(approxEql(lu.L, ([
