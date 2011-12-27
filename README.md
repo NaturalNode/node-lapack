@@ -2,7 +2,7 @@
 node-lapack
 ===========
 
-A node.js wrapper for the high-performance LAPACK linear algebra library.
+A node.js wrapper for the high-performance [LAPACK](http://www.netlib.org/lapack/) linear algebra library.
 
 Prerequisites
 =============
