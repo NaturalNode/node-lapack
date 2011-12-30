@@ -15,6 +15,13 @@ describe('lapack', function() {
 	[-4, 5,  3, 1],
 	[-9, 4,  3, 9]
     ];
+
+    var lu2 = [
+        [3, 6],
+        [2, 3],
+        [4, 3],
+        [2, 120],
+    ];
     
     it('should solve', function() {
 	var A = [
@@ -25,6 +32,17 @@ describe('lapack', function() {
 	var B = [[2], [4]];
 	expect(lapack.sgesv(A, B).X).toEqual([[0], [.5]]);	
 	expect(lapack.sgesv(A, B).P).toEqual([[1, 0], [0, 1]]);
+    });
+
+    it('should lu rectangular matrix', function() {
+	var lu = lapack.lu(lu2);
+	expect(lu.IPIV).toEqual([3, 4]);
+	expect(lu.L).toEqual([ [ 1, 0 ],
+			       [ 0.5, 1 ],
+			       [ 0.75, 0.03164556622505188 ],
+			       [ 0.5, 0.012658227235078812 ] ]);
+	expect(lu.U).toEqual([[4, 3], [0, 118.5], 
+			      [0, 0], [0, 0 ]]);
     });
 
     it('should lu', function() {
