@@ -41,8 +41,7 @@ describe('lapack', function() {
 			       [ 0.5, 1 ],
 			       [ 0.75, 0.03164556622505188 ],
 			       [ 0.5, 0.012658227235078812 ] ]);
-	expect(lu.U).toEqual([[4, 3], [0, 118.5], 
-			      [0, 0], [0, 0 ]]);
+	expect(lu.U).toEqual([[4, 3], [0, 118.5]]);
     });
 
     it('should lu', function() {
