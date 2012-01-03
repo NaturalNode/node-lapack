@@ -1,10 +1,13 @@
 {
   "name": "lapack",
   "description": "",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/NaturalNode/node-lapack",
   "engines": {
     "node": ">=0.2.6"
+  },
+  "dependencies": {
+    "node-ffi": ">= 0.4.2",
   },
   "author": "Chris Umbel <chris@chrisumbel.com>",
   "keywords": ["lapack", "math", "linear", "algebra", "HPC"],
