@@ -22,7 +22,8 @@ describe('lapack', function() {
         [4, 3],
         [2, 120],
     ];
-    
+
+    /*
     it('should solve', function() {
 	var A = [
 	    [2, 4],
@@ -34,6 +35,7 @@ describe('lapack', function() {
 	expect(lapack.sgesv(A, B).P).toEqual([[1, 0], [0, 1]]);
     });
 
+    
     it('should lu rectangular matrix', function() {
 	var lu = lapack.lu(lu2);
 	expect(lu.IPIV).toEqual([3, 4]);
@@ -43,9 +45,11 @@ describe('lapack', function() {
 			       [ 0.5, 0.012658227235078812 ] ]);
 	expect(lu.U).toEqual([[4, 3], [0, 118.5]]);
     });
-
+    */
+    
     it('should lu', function() {
 	var lu = lapack.lu(luIn);
+
 	expect(approxEql(lu.L, ([
 	    [ 1, 0, 0, 0 ],
 	    [ -0.8181818723678589, 1, 0, 0 ],
@@ -68,8 +72,8 @@ describe('lapack', function() {
 	    [ 0, 1, 0, 0 ],
 	    [ 0, 0, 1, 0 ]	    
 	])).toBeTruthy();
-    });
-    
+    });    
+
     it('should sgetrf', function() {
 	var result = lapack.sgetrf(luIn);
 	expect(approxEql(result.LU, [ [ 11, 3, 11, 3 ],
@@ -88,12 +92,9 @@ describe('lapack', function() {
 	expect(approxEql(result.IPIV, [ 3, 2, 3, 4 ])).toBeTruthy();
     });
 
-    it('shoud dgeqrf', function() {
-	var qr = lapack.dgeqrf(M);
-	console.log(qr);
-
-	qr = lapack.sgeqrf(M);
-	console.log(qr);
+    it('shoud dgeqrf and sgeqrf', function() {
+	expect(approxEql(lapack.dgeqrf(M).R, 
+			 lapack.sgeqrf(M).R)).toBeTruthy();
     });
     
     it('shoud sgeqrf', function() {
