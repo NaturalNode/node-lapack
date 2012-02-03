@@ -88,6 +88,10 @@ describe('lapack', function() {
 	expect(approxEql(result.IPIV, [ 3, 2, 3, 4 ])).toBeTruthy();
     });
 
+    if('should sgetrf and dgetrf approx eql', function() {
+	expect(approxEql(lapack.sgetrf(luIn).LU, lapack.dgetrf(luIn).LU)).toBeTruthy();
+    });
+
     it('shoud dgeqrf and sgeqrf approximately equal', function() {
         expect(approxEql(lapack.dgeqrf(M).R,
                          lapack.sgeqrf(M).R)).toBeTruthy();
