@@ -200,6 +200,8 @@ Installing
     # for linux
     cp liblapack.so libblas.so /usr/lib
     # for macos
+    # NOTE! this might be dangerous now. macs ship with liblapack.dylib now?
+    # regardless, i don't suggest installing a custom lapack right now on Mac
     cp liblapack.dylib libblas.dylib /usr/lib
 
 
