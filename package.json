@@ -7,7 +7,7 @@
     "node": ">=0.2.6"
   },
   "dependencies": {
-    "node-ffi": ">= 0.4.2"
+    "ffi": ">=1.2.7"
   },
   "author": "Chris Umbel <chris@chrisumbel.com>",
   "keywords": ["lapack", "math", "linear", "algebra", "HPC"],
