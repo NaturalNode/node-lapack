@@ -1,7 +1,7 @@
 {
   "name": "lapack",
   "description": "",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/NaturalNode/node-lapack",
   "engines": {
     "node": ">=0.2.6"
@@ -10,11 +10,19 @@
     "ffi": ">=1.2.7"
   },
   "author": "Chris Umbel <chris@chrisumbel.com>",
-  "keywords": ["lapack", "math", "linear", "algebra", "HPC"],
+  "keywords": [
+    "lapack",
+    "math",
+    "linear",
+    "algebra",
+    "HPC"
+  ],
   "main": "./lib/node-lapack/index.js",
-  "maintainers": [{
+  "maintainers": [
+    {
       "name": "Chris Umbel",
       "email": "chris@chrisumbel.com",
       "web": "http://www.chrisumbel.com"
-  }]
+    }
+  ]
 }
