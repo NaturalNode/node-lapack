@@ -24,5 +24,15 @@
       "email": "chris@chrisumbel.com",
       "web": "http://www.chrisumbel.com"
     }
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NaturalNode/node-lapack.git" 
+  },
+  "scripts": {
+    "test": "node ./node_modules/.bin/mocha spec/lapack_spec.js"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1"
+  }
 }

@@ -1,5 +1,5 @@
 
-var lapack = require('lib/node-lapack');
+var lapack = require('../lib/node-lapack');
 var approxEql = require('./approxEql');
 
 describe('lapack', function() {
