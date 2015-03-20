@@ -1,6 +1,7 @@
 
 var lapack = require('../lib/node-lapack');
 var approxEql = require('./approxEql');
+var expect = require('expect');
 
 describe('lapack', function() {
     var M = [
@@ -52,7 +53,7 @@ describe('lapack', function() {
 	    [ 0.3636363744735718, 0.14084506034851074, 1, 0 ],
 	    [ -0.3636363744735718, 0.9436619877815247,
 	      0.9219222664833069, 1 ]	    
-	]))).toBeTruthy();
+	]))).toBe(true);
 	
 	expect(approxEql(lu.U, [
 	    [ 11, 3, 11, 3 ],
@@ -60,14 +61,14 @@ describe('lapack', function() {
 	      12.000000953674316, 11.454545974731445 ],
 	    [ 0, 0, -4.690140724182129, 1.2957748174667358 ],
 	    [ 0, 0, 0, -9.912914276123047 ]	    
-	])).toBeTruthy();
+	])).toBe(true);
 	
 	expect(approxEql(lu.P, [
 	    [ 1, 0, 0, 0 ],
 	    [ 0, 0, 0, 1 ],
 	    [ 0, 1, 0, 0 ],
 	    [ 0, 0, 1, 0 ]	    
-	])).toBeTruthy();
+	])).toBe(true);
     });
     
     it('should sgetrf', function() {
@@ -84,65 +85,65 @@ describe('lapack', function() {
 				      [ -0.3636363744735718,
 					0.9436619877815247,
 					0.9219222664833069,
-					-9.912914276123047 ] ])).toBeTruthy();
-	expect(approxEql(result.IPIV, [ 3, 2, 3, 4 ])).toBeTruthy();
+					-9.912914276123047 ] ])).toBe(true);
+	expect(approxEql(result.IPIV, [ 3, 2, 3, 4 ])).toBe(true);
     });
 
     if('should sgetrf and dgetrf approx eql', function() {
-	expect(approxEql(lapack.sgetrf(luIn).LU, lapack.dgetrf(luIn).LU)).toBeTruthy();
+	expect(approxEql(lapack.sgetrf(luIn).LU, lapack.dgetrf(luIn).LU)).toBe(true);
     });
 
     it('shoud dgeqrf and sgeqrf approximately equal', function() {
         expect(approxEql(lapack.dgeqrf(M).R,
-                         lapack.sgeqrf(M).R)).toBeTruthy();
+                         lapack.sgeqrf(M).R)).toBe(true);
     });
     
     it('shoud sgeqrf', function() {
 	var qr = lapack.sgeqrf(M);
 
 	expect(approxEql(qr.R, 
-			 [ [ 2.4494898,
-			     1.6329932,
-			     2.4494896 ],
-			   [ -2.2247450,
-			     0.57735044,
-			     1.7320511 ],
-			   [ -2.2247450,
+			 [ [ -2.4494898,
+			     -1.6329932,
+			     -2.4494896 ],
+			   [  0.2247450,
+			     -0.57735044,
+			     -1.7320511 ],
+			   [ 0.2247450,
 			     0.41421360,
-			     1.4142138 ] ])).toBeTruthy();
+			     1.4142138 ] ])).toBe(true);
     });
 
     
     it('shoud dgeqrf', function() {
 	var qr = lapack.dgeqrf(M);
-	expect(approxEql(qr.R, [[2.4494898319244385,
-				 1.632993221282959,
-				 2.4494895935058594 ],
-			 [-2.224745035171509,
-			   0.5773504376411438,
-			   1.732051134109497 ],
-			 [-2.224745035171509,
+	expect(approxEql(qr.R, [[-2.4494898319244385,
+				 -1.632993221282959,
+				 -2.4494895935058594 ],
+			 [ 0.224745035171509,
+			  -0.5773504376411438,
+			  -1.732051134109497 ],
+			 [ 0.224745035171509,
 			   0.4142135977745056,
-			  1.41421377658844 ]])).toBeTruthy();
+			   1.41421377658844 ]])).toBe(true);
     });
 
     it('should qr', function() {
 	var qr = lapack.qr(M);
-	expect(approxEql(qr.R, [ [ 2.4494898,
-			     1.6329932,
-			     2.4494896 ],
-			   [ 0,
-			     0.57735044,
-			     1.73205113 ],
-			   [ 0,
-			     0,
+	expect(approxEql(qr.R, [ [ -2.4494898,
+			     -1.6329932,
+			     -2.4494896 ],
+			   [ 0.0,
+			     -0.57735044,
+			     -1.73205113 ],
+			   [ 0.0,
+			     0.0,
 			     1.41421377 ] ]
-	)).toBeTruthy();
+	)).toBe(true);
 	expect(approxEql(qr.Q, [
-	    [0.81649661, -0.57735032, 0],
-	    [0.40824828, 0.57735050, -0.7071067],
-	    [0.40824828, 0.57735044, 0.70710683]
-	]));
+	    [-0.81649661, 0.57735032, 0.0],
+	    [-0.40824828, -0.57735050, -0.7071067],
+	    [-0.40824828, -0.57735044, 0.70710683]
+	])).toBe(true);
     });
 
     it('should sgesvd', function() {
